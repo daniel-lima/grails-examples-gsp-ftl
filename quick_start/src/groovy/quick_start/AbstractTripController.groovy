@@ -1,4 +1,4 @@
-package view_comp
+package quick_start
 
 abstract class AbstractTripController {
 
