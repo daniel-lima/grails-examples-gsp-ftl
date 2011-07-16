@@ -9,9 +9,10 @@ abstract class AbstractTripController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 10, 1000)
         [tripInstanceList: Trip.list(params), tripInstanceTotal: Trip.count()]
     }
+
 
     def create = {
         def tripInstance = new Trip()
@@ -96,5 +97,10 @@ abstract class AbstractTripController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'trip.label', default: 'Trip'), params.id])}"
             redirect(action: "list")
         }
+    }
+
+    def bigList = {
+        List list = servletContext.bigList
+        render(view: 'list', model: [tripInstanceList: list, tripInstanceTotal: list.size()])
     }
 }

@@ -91,6 +91,8 @@ log4j = {
     /*debug  'org.codehaus.groovy.grails.plugins.freemarker'*/
 }
 
+grails.gorm.failOnError=true
+
 grails.plugins.freemarkertags = [
     autoImport: false,                   /* To enable or to disable auto-import feature. When disabled the generated libraries can be imported using FreeMarker default mechanism. */
     defineLegacyFunctions: false,       /* To enable or to disable "legacy" (name starting with '_') function declaration/definition feature. */
